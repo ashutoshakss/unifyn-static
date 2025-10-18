@@ -1,0 +1,29 @@
+{
+  "name": "unifyn-trade",
+  "version": "1.0.0",
+  "description": "India's first unified, broker-agnostic trading hub",
+  "private": true,
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "dev:node": "npx http-server -p 8080 -c-1",
+    "preview": "wrangler pages dev .",
+    "deploy": "wrangler pages deploy . --project-name=unifyn-trade",
+    "validate": "node scripts/validate.js"
+  },
+  "keywords": [
+    "trading",
+    "fintech",
+    "broker",
+    "india",
+    "static-site"
+  ],
+  "author": "Unifyn",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "wrangler": "^3.22.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+
