@@ -11,7 +11,6 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const REQUIRED_FILES = [
   'index.html',
-  'contact.html',
   'terms.html',
   'privacy.html',
   '404.html',
@@ -65,7 +64,7 @@ REQUIRED_FILES.forEach((file) => {
 
 // Check HTML files for common issues
 info('\nValidating HTML files...');
-const htmlFiles = ['index.html', 'contact.html', 'terms.html', 'privacy.html', '404.html'];
+const htmlFiles = ['index.html', 'terms.html', 'privacy.html', '404.html'];
 
 htmlFiles.forEach((file) => {
   const filePath = path.join(ROOT, file);
@@ -212,4 +211,10 @@ console.log('='.repeat(50) + '\n');
 
 // Exit with error code if there are errors
 process.exit(errors > 0 ? 1 : 0);
+
+
+
+
+
+
 

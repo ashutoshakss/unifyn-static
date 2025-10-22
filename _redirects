@@ -14,7 +14,7 @@
 # /signup.html /#signup 301
 
 # Ensure trailing slashes are handled consistently
-/contact /contact.html 301
+/contact /#contact 301
 /terms /terms.html 301
 /privacy /privacy.html 301
 

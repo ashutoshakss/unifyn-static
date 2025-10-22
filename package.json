@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "python3 -m http.server 8080",
     "dev:node": "npx http-server -p 8080 -c-1",
+    "build": "node scripts/build.js",
+    "serve:dist": "npx http-server ./dist -p 8080 -c-1",
     "preview": "wrangler pages dev .",
-    "deploy": "wrangler pages deploy . --project-name=unifyn-trade",
+    "deploy": "wrangler pages deploy dist --project-name=unifyn-trade",
     "validate": "node scripts/validate.js"
   },
   "keywords": [

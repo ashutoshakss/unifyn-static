@@ -119,14 +119,51 @@ function initMobileNav() {
 
 function initSmoothScroll() {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  
+  // Handle all links that might have hash fragments
+  document.querySelectorAll('a[href*="#"]').forEach((anchor) => {
     anchor.addEventListener('click', (e) => {
-      const id = anchor.getAttribute('href') || '';
-      const target = id.length > 1 ? document.querySelector(id) : null;
-      if (target) {
+      const href = anchor.getAttribute('href') || '';
+      
+      // Parse the href to get page and hash
+      const [page, hash] = href.split('#');
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      
+      // Check if we're staying on the same page
+      const isSamePage = !page || page === '' || page === currentPage || 
+                         (page === 'index.html' && (currentPage === 'index.html' || currentPage === ''));
+      
+      if (!isSamePage) {
+        // Let browser handle navigation to different page
+        return;
+      }
+      
+      // Handle same-page navigation with smooth scroll
+      if (hash && hash !== '') {
+        const target = document.getElementById(hash);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+          if (target instanceof HTMLElement) target.focus({ preventScroll: true });
+          // Update URL without triggering navigation
+          if (history.pushState) {
+            history.pushState(null, '', `#${hash}`);
+          }
+        }
+      }
+    });
+  });
+  
+  // Handle "Home" links that go to index.html without hash - scroll to top when on same page
+  document.querySelectorAll('a[href="index.html"]').forEach((anchor) => {
+    anchor.addEventListener('click', (e) => {
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      if (currentPage === 'index.html' || currentPage === '') {
         e.preventDefault();
-        target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
-        if (target instanceof HTMLElement) target.focus({ preventScroll: true });
+        window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+        if (history.pushState) {
+          history.pushState(null, '', window.location.pathname);
+        }
       }
     });
   });
@@ -182,23 +219,32 @@ function initYear() {
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 }
 
-// Lightweight HTML partial loader for header/footer templates
-async function loadPartials() {
-  const placeholders = document.querySelectorAll('[data-include]');
-  if (!placeholders.length) return;
-  
-  await Promise.all(
-    Array.from(placeholders).map(async (el) => {
-      const src = el.getAttribute('data-include');
-      if (!src) return;
-      try {
-        const res = await fetch(src, { cache: 'no-cache' });
-        if (!res.ok) return;
-        const html = await res.text();
-        el.outerHTML = html;
-      } catch {}
-    })
-  );
+// Partials now loaded via custom elements (web-components.js)
+
+// Wait for specific elements to exist in DOM
+function waitForElement(selector, timeout = 5000) {
+  return new Promise((resolve, reject) => {
+    if (document.querySelector(selector)) {
+      return resolve(document.querySelector(selector));
+    }
+    
+    const observer = new MutationObserver(() => {
+      if (document.querySelector(selector)) {
+        observer.disconnect();
+        resolve(document.querySelector(selector));
+      }
+    });
+    
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+    
+    setTimeout(() => {
+      observer.disconnect();
+      reject(new Error(`Element ${selector} not found within ${timeout}ms`));
+    }, timeout);
+  });
 }
 
 // Modals
@@ -258,7 +304,6 @@ function initModals() {
   
   // Close modal on close button or backdrop click
   document.addEventListener('click', (e) => {
-    // Check if clicked element or any parent has data-close-modal
     const closeBtn = e.target.closest('[data-close-modal]');
     if (!closeBtn) return;
     
@@ -288,13 +333,37 @@ function initModals() {
 
 document.addEventListener('DOMContentLoaded', async () => {
   applySavedTheme();
-  await loadPartials();
+
+  // Re-run initializers after includes; once after all includes for safety
+  document.addEventListener('include:loaded', () => {
+    initSmoothScroll();
+    initModals();
+    initYear();
+  });
+  document.addEventListener('include:all-loaded', () => {
+    initSmoothScroll();
+    initModals();
+    initYear();
+  });
+
+  // Wait for custom element to be registered
+  await customElements.whenDefined('include-html');
+
+  // Initial run for static content present in the page
   initThemeMenu();
   initMobileNav();
   initSmoothScroll();
   initAccordions();
   initRevealOnScroll();
   initYear();
+
+  // Best-effort wait for modals, then wire triggers
+  try {
+    await Promise.all([
+      waitForElement('#modal-login', 3000),
+      waitForElement('#modal-signup', 3000)
+    ]);
+  } catch {}
   initModals();
 });
 
