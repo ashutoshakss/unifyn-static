@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer className="relative border-t border-slate-800/50 py-10 sm:py-16 md:py-20 mt-16 sm:mt-32" role="contentinfo">
+    <footer className="relative border-t border-slate-800/50 py-10 sm:py-16 md:py-20 sm:mt-32" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Brand Section - Full Width on Mobile */}
         <div className="mb-8 sm:mb-12">
