@@ -1,15 +1,43 @@
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Terms & Conditions',
+  description: 'Terms and Conditions for Unifyn - India\'s unified finance superapp and broker agnostic trading platform. Understand the terms of using our platform.',
+  keywords: [
+    'Unifyn terms',
+    'unified finance terms',
+    'broker agnostic platform terms',
+    'trading platform terms',
+    'Unifyn conditions',
+  ],
+  openGraph: {
+    title: 'Terms & Conditions | Unifyn - Unified Finance Superapp',
+    description: 'Read the terms and conditions for using Unifyn\'s broker agnostic trading platform.',
+    url: 'https://unifyn.trade/terms',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Terms & Conditions | Unifyn',
+    description: 'Terms and conditions for using our unified finance platform.',
+  },
+  alternates: {
+    canonical: 'https://unifyn.trade/terms',
+  },
+};
 
 export default function TermsPage() {
   return (
     <>
+      <a href="#content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-cyan-500 text-white px-4 py-2 rounded-lg z-50">Skip to main content</a>
       <Header />
-      <main id="content" className="relative pt-32 pb-20">
+      <main id="content" className="relative pt-32 pb-20" role="main">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <article className="rounded-2xl border border-slate-800 bg-slate-900/50 backdrop-blur-sm p-8 lg:p-12 prose prose-invert prose-slate max-w-none">
-            <h1 className="text-4xl font-bold text-white mb-2">Terms & Conditions</h1>
-            <p className="text-sm text-slate-400 mb-8">Last updated: January 1, 2025</p>
+          <article className="rounded-2xl border border-slate-800 bg-slate-900/50 backdrop-blur-sm p-8 lg:p-12 prose prose-invert prose-slate max-w-none" role="article" aria-labelledby="terms-heading">
+            <h1 id="terms-heading" className="text-4xl font-bold text-white mb-2">Terms & Conditions</h1>
+            <p className="text-sm text-slate-400 mb-8" role="contentinfo">Last updated: January 1, 2025</p>
             <div className="space-y-6 text-slate-300">
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">1. Acceptance of Terms</h2><p>By using Unifyn, you agree to these Terms & Conditions. If you do not agree, do not use our services.</p></section>
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">2. Service Description</h2><p>Unifyn provides a unified interface for connecting to multiple stock brokers in India. We are not a stock broker. All trades are executed via your registered broker's API under their terms.</p></section>

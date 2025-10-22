@@ -1,13 +1,15 @@
 {
-  "name": "Unifyn",
+  "name": "Unifyn - Unified Finance Superapp",
   "short_name": "Unifyn",
-  "description": "India’s first unified, broker-agnostic trading hub. Connect your existing brokers in one app.",
+  "description": "India's first unified finance superapp and broker agnostic trading platform. Connect Angel One, Zerodha, Upstox and more brokers in one seamless interface for unified finance.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#020617",
   "theme_color": "#0ea5e9",
   "lang": "en-IN",
+  "categories": ["finance", "business", "productivity"],
+  "orientation": "any",
   "icons": [
     {
       "src": "/favicon.svg",
@@ -19,6 +21,23 @@
       "src": "/favicon.ico",
       "sizes": "48x48 32x32 16x16",
       "type": "image/x-icon"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Connect Broker",
+      "short_name": "Connect",
+      "description": "Connect your broker to unified finance platform",
+      "url": "/#features",
+      "icons": []
+    },
+    {
+      "name": "View Features",
+      "short_name": "Features",
+      "description": "View broker agnostic platform features",
+      "url": "/#features",
+      "icons": []
     }
   ]
 }

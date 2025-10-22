@@ -14,11 +14,20 @@
     "validate": "node scripts/validate.js"
   },
   "keywords": [
-    "trading",
-    "fintech",
-    "broker",
-    "india",
-    "static-site"
+    "unified finance superapp",
+    "broker agnostic trading app",
+    "unified finance",
+    "broker agnostic platform",
+    "multi broker trading",
+    "trading platform India",
+    "Angel One Zerodha integration",
+    "unified trading interface",
+    "fintech superapp",
+    "broker independent trading",
+    "consolidated trading platform",
+    "portfolio management India",
+    "trading analytics platform",
+    "multi-broker app"
   ],
   "author": "Unifyn",
   "license": "UNLICENSED",
@@ -38,5 +47,9 @@
   },
   "engines": {
     "node": ">=18.0.0"
-  }
+  },
+  "browserslist": [
+    "defaults and fully supports es6-module",
+    "maintained node versions"
+  ]
 }

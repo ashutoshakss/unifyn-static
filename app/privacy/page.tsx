@@ -1,15 +1,43 @@
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description: 'Privacy Policy for Unifyn - India\'s unified finance superapp and broker agnostic trading platform. Learn how we protect your data and ensure privacy in our trading platform.',
+  keywords: [
+    'Unifyn privacy policy',
+    'unified finance privacy',
+    'broker agnostic platform privacy',
+    'trading platform data protection',
+    'financial data security',
+  ],
+  openGraph: {
+    title: 'Privacy Policy | Unifyn - Unified Finance Superapp',
+    description: 'Learn how Unifyn protects your privacy and secures your data in our broker agnostic trading platform.',
+    url: 'https://unifyn.trade/privacy',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Privacy Policy | Unifyn',
+    description: 'Learn how we protect your data in our unified finance platform.',
+  },
+  alternates: {
+    canonical: 'https://unifyn.trade/privacy',
+  },
+};
 
 export default function PrivacyPage() {
   return (
     <>
+      <a href="#content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-cyan-500 text-white px-4 py-2 rounded-lg z-50">Skip to main content</a>
       <Header />
-      <main id="content" className="relative pt-32 pb-20">
+      <main id="content" className="relative pt-32 pb-20" role="main">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <article className="rounded-2xl border border-slate-800 bg-slate-900/50 backdrop-blur-sm p-8 lg:p-12 prose prose-invert prose-slate max-w-none">
-            <h1 className="text-4xl font-bold text-white mb-2">Privacy Policy</h1>
-            <p className="text-sm text-slate-400 mb-8">Last updated: January 1, 2025</p>
+          <article className="rounded-2xl border border-slate-800 bg-slate-900/50 backdrop-blur-sm p-8 lg:p-12 prose prose-invert prose-slate max-w-none" role="article" aria-labelledby="privacy-heading">
+            <h1 id="privacy-heading" className="text-4xl font-bold text-white mb-2">Privacy Policy</h1>
+            <p className="text-sm text-slate-400 mb-8" role="contentinfo">Last updated: January 1, 2025</p>
             <div className="space-y-6 text-slate-300">
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">1. Introduction</h2><p>Unifyn ("we", "our", "us") respects your privacy. This Privacy Policy explains how we collect, use, and protect your personal information.</p></section>
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">2. Information We Collect</h2><ul className="list-disc pl-6 space-y-2"><li><strong>Account Information:</strong> Email, name (if provided).</li><li><strong>Broker Tokens:</strong> OAuth access tokens from your broker (encrypted at rest).</li><li><strong>Trading Data:</strong> Orders, positions, P&L fetched via broker API (stored securely).</li><li><strong>Usage Data:</strong> Pages visited, features used, anonymized analytics.</li></ul></section>
