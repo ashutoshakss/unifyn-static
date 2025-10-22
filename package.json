@@ -4,9 +4,10 @@
   "description": "India's first unified, broker-agnostic trading hub",
   "private": true,
   "scripts": {
-    "dev": "python3 -m http.server 8080",
-    "dev:node": "npx http-server -p 8080 -c-1",
-    "build": "node scripts/build.js",
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "build:static": "next build && rm -rf dist && cp -R .next/static .next/server/app ./ && mv .next/export dist || mv out dist || true",
+    "start": "next start -p 3000",
     "serve:dist": "npx http-server ./dist -p 8080 -c-1",
     "preview": "wrangler pages dev .",
     "deploy": "wrangler pages deploy dist --project-name=unifyn-trade",
@@ -21,11 +22,21 @@
   ],
   "author": "Unifyn",
   "license": "UNLICENSED",
+  "dependencies": {
+    "next": "^15.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
   "devDependencies": {
+    "@types/node": "24.9.1",
+    "@types/react": "19.2.2",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.10",
+    "typescript": "5.9.3",
     "wrangler": "^3.22.0"
   },
   "engines": {
     "node": ">=18.0.0"
   }
 }
-

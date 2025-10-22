@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Disallow non-existent API on static host
+Disallow: /api/
+
+Sitemap: https://unifyn.trade/sitemap.xml
+
+
