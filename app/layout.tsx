@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata, Viewport } from 'next';
 import { ModalProvider } from '../components/ModalProvider';
+import { ThemeProvider } from '../components/ThemeProvider';
 
 export const metadata: Metadata = {
   title: "Unifyn — India's first unified, broker‑agnostic trading hub",
@@ -21,7 +22,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="bg-slate-950 text-slate-100 antialiased font-sans relative">
-        <ModalProvider>{children}</ModalProvider>
+        <ThemeProvider>
+          <ModalProvider>{children}</ModalProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

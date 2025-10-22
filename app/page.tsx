@@ -25,8 +25,8 @@ export default function HomePage() {
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6">Trade smarter<br/>across brokers</h1>
             <p className="text-lg sm:text-xl text-slate-300 mb-10 max-w-2xl mx-auto">Connect Angel One, Zerodha, Upstox and more. One interface for trading, analytics and ledger.</p>
             <div className="flex items-center justify-center gap-4">
-              <button className="inline-flex items-center rounded-full px-8 py-3.5 text-base font-semibold bg-cyan-500 text-white hover:bg-cyan-600 shadow-lg shadow-cyan-500/25 transition-all hover:shadow-cyan-500/40">Connect your broker</button>
-              <button className="inline-flex items-center rounded-full px-8 py-3.5 text-base font-semibold border border-white/20 bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm transition-all">Get early access</button>
+              <button data-open-modal="connect-broker" className="inline-flex items-center rounded-full px-8 py-3.5 text-base font-semibold bg-cyan-500 text-white hover:bg-cyan-600 shadow-lg shadow-cyan-500/25 transition-all hover:shadow-cyan-500/40">Connect your broker</button>
+              <button data-open-modal="signup" className="inline-flex items-center rounded-full px-8 py-3.5 text-base font-semibold border border-white/20 bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm transition-all">Get early access</button>
             </div>
             <p className="mt-8 text-xs text-slate-400 max-w-2xl mx-auto">Unifyn is not a stock broker. Market investments are subject to risks. Logos shown are trademarks of their respective owners; Unifyn is not affiliated unless stated.</p>
             <div className="mt-16">
