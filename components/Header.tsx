@@ -27,7 +27,7 @@ export function Header() {
           </button>
           <button 
             data-open-modal="signup" 
-            className="rounded-full px-5 py-2 text-sm font-semibold bg-cyan-600 text-white hover:bg-cyan-700 transition-colors shadow-lg shadow-cyan-600/20 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-950"
+            className="rounded-full px-5 py-2 text-sm font-semibold bg-cyan-700 text-white hover:bg-cyan-800 transition-colors shadow-lg shadow-cyan-700/20 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-950"
             aria-label="Sign up for Unifyn"
           >
             Signup

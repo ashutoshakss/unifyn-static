@@ -110,7 +110,7 @@ export default function HomePage() {
             <div className="flex items-center justify-center gap-4" role="group" aria-label="Call to action buttons">
               <button 
                 data-open-modal="connect-broker" 
-                className="inline-flex items-center rounded-full px-8 py-3.5 text-base font-semibold bg-cyan-600 text-white hover:bg-cyan-700 shadow-lg shadow-cyan-600/25 transition-all hover:shadow-cyan-600/40 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-950"
+                className="inline-flex items-center rounded-full px-8 py-3.5 text-base font-semibold bg-cyan-700 text-white hover:bg-cyan-800 shadow-lg shadow-cyan-700/25 transition-all hover:shadow-cyan-700/40 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-950"
                 aria-label="Connect your broker to unified finance platform"
               >
                 Connect your broker
@@ -385,7 +385,7 @@ export default function HomePage() {
                   </div>
                   <button 
                     type="submit"
-                    className="w-full rounded-full px-6 py-3 text-sm font-semibold bg-cyan-600 text-white hover:bg-cyan-700 transition-colors shadow-lg shadow-cyan-600/20 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                    className="w-full rounded-full px-6 py-3 text-sm font-semibold bg-cyan-700 text-white hover:bg-cyan-800 transition-colors shadow-lg shadow-cyan-700/20 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-900"
                     aria-label="Send message to Unifyn"
                   >
                     Send message
