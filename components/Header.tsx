@@ -52,7 +52,6 @@ export function Header() {
         <div className="hidden md:flex items-center gap-2 justify-self-center rounded-full px-2 py-1.5 backdrop-blur-xl border border-slate-200/60 dark:border-slate-700/30 shadow-lg" role="navigation" aria-label="Primary">
           <Link href="/" className={baseNavLinkClass} aria-label="Go to home page">Home</Link>
           <Link href="/#features" className={baseNavLinkClass} aria-label="View platform features">Features</Link>
-          <Link href="/#pricing" className={baseNavLinkClass} aria-label="View pricing plans">Pricing</Link>
           <Link href="/#security" className={baseNavLinkClass} aria-label="Learn about security">Security</Link>
           <Link href="/#contact" className={baseNavLinkClass} aria-label="Contact us">Contact</Link>
         </div>
@@ -140,13 +139,6 @@ export function Header() {
                 className="block px-4 py-3 rounded-lg text-lg font-medium text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all mb-2"
               >
                 Features
-              </Link>
-              <Link 
-                href="/#pricing" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-3 rounded-lg text-lg font-medium text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all mb-2"
-              >
-                Pricing
               </Link>
               <Link 
                 href="/#security" 

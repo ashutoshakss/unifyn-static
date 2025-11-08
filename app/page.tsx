@@ -9,8 +9,17 @@ export default function HomePage() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      const sourceParam = params.get('source')?.toLowerCase();
+      // Check regular query string first
+      let params = new URLSearchParams(window.location.search);
+      let sourceParam = params.get('source')?.toLowerCase();
+      
+      // If not found, check hash for query parameters (e.g., #contact?source=mobile)
+      if (!sourceParam && window.location.hash.includes('?')) {
+        const hashQuery = window.location.hash.split('?')[1];
+        params = new URLSearchParams(hashQuery);
+        sourceParam = params.get('source')?.toLowerCase();
+      }
+      
       setHideChrome(sourceParam === 'mobile');
     }
   }, []);
@@ -74,14 +83,6 @@ export default function HomePage() {
         acceptedAnswer: {
           '@type': 'Answer',
           text: 'Benefits include: unified view of all your portfolios across brokers, consolidated P&L and analytics, single interface for trading, better portfolio management, simplified tax reporting, and freedom to choose brokers based on features rather than being locked into one app.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'How much does Unifyn unified finance superapp cost?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Unifyn offers transparent pricing with no hidden fees. Pricing details are being finalized and will be announced soon. As a broker agnostic platform, you will continue to pay your existing broker charges; Unifyn charges only for the unified interface and analytics features.',
         },
       },
     ],
@@ -187,22 +188,6 @@ export default function HomePage() {
                 <p className="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">Personalize themes, layouts, and keyboard shortcuts to create your perfect <strong>unified finance</strong> workspace.</p>
               </article>
             </div>
-          </div>
-        </section>
-
-        <section id="pricing" aria-labelledby="pricing-heading" className="pt-24 md:pt-28 pb-10 sm:pb-12 relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <header className="text-center">
-              <h2 id="pricing-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--color-heading)] mb-3 sm:mb-4 px-2">
-                Simple, Transparent Pricing
-              </h2>
-              <p className="text-base sm:text-lg text-[var(--color-muted)] mb-6 sm:mb-8 px-2 leading-relaxed max-w-2xl mx-auto">
-                Affordable <strong>unified finance superapp</strong> pricing. Transparent plans with no hidden fees for our <strong>broker agnostic trading platform</strong>.
-              </p>
-              <div className="inline-block rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] backdrop-blur-sm p-6 sm:p-8 mx-2" role="status">
-                <p className="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">Pricing details coming soon. Get notified when we launch our competitive pricing plans.</p>
-              </div>
-            </header>
           </div>
         </section>
 
@@ -324,15 +309,6 @@ export default function HomePage() {
                 </summary>
                 <p className="mt-3 sm:mt-4 text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">
                   Benefits include: unified view of all your portfolios across brokers, consolidated P&L and analytics, single interface for trading, better portfolio management, simplified tax reporting, and freedom to choose brokers based on features rather than being locked into one app.
-                </p>
-              </details>
-              <details className="rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] backdrop-blur-sm p-5 sm:p-6 hover:border-cyan-500/30 transition-colors group">
-                <summary className="font-semibold text-[var(--color-heading)] text-base sm:text-lg cursor-pointer list-none flex items-center justify-between gap-4">
-                  <span>How much does Unifyn unified finance superapp cost?</span>
-                  <span className="text-cyan-400 text-2xl group-open:rotate-180 transition-transform shrink-0" aria-hidden="true">+</span>
-                </summary>
-                <p className="mt-3 sm:mt-4 text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">
-                  Unifyn offers transparent pricing with no hidden fees. Pricing details are being finalized and will be announced soon. As a <strong>broker agnostic platform</strong>, you will continue to pay your existing broker charges; Unifyn charges only for the unified interface and analytics features.
                 </p>
               </details>
             </div>
