@@ -140,7 +140,7 @@ export default function HomePage() {
               <strong>Disclaimer:</strong> Unifyn is not a stock broker. Market investments are subject to risks. No broker integrations are live yet.
             </p>
             <div className="mt-12 sm:mt-16">
-              <p className="text-xs sm:text-sm text-[var(--color-muted)] mb-3 sm:mb-4 px-4">Built for everyone. Broker-agnostic unified finance.</p>
+              <p className="text-xs sm:text-sm text-[var(--color-muted)] mb-3 sm:mb-4 px-4">Built for everyone. Broker-agnostic unified finance app.</p>
             </div>
           </div>
         </section>
