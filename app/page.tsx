@@ -1,8 +1,12 @@
+import { use } from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { SHOW_BROKER_UI } from './config';
 
-export default function HomePage({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
+export const dynamic = 'force-static';
+
+export default function HomePage(props: { searchParams?: Promise<{ [key: string]: string | string[] | undefined }> }) {
+  const searchParams = props.searchParams ? use(props.searchParams) : {};
   // FAQ Structured Data for AEO
   const faqStructuredData = {
     '@context': 'https://schema.org',

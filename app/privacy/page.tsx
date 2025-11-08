@@ -1,6 +1,9 @@
+import { use } from 'react';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import type { Metadata } from 'next';
+
+export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -28,7 +31,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PrivacyPage({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
+export default function PrivacyPage(props: { searchParams?: Promise<{ [key: string]: string | string[] | undefined }> }) {
+  const searchParams = props.searchParams ? use(props.searchParams) : {};
   const sourceParamRaw = Array.isArray(searchParams?.source) ? searchParams.source[0] : searchParams?.source;
   const hideChrome = typeof sourceParamRaw === 'string' && sourceParamRaw.toLowerCase() === 'mobile';
   return (

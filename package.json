@@ -6,11 +6,10 @@
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",
-    "build:static": "next build && rm -rf dist && cp -r .next/server/app dist && mkdir -p dist/_next && cp -r .next/static dist/_next/ && cp -r public/* dist/",
     "start": "next start -p 3000",
-    "serve:dist": "npx http-server ./dist -p 8080 -c-1",
-    "preview": "wrangler pages dev .",
-    "deploy": "wrangler pages deploy dist --project-name=unifyn-trade",
+    "serve:dist": "npx http-server ./out -p 8080 -c-1",
+    "preview": "wrangler pages dev out",
+    "deploy": "wrangler pages deploy out --project-name=unifyn-trade",
     "validate": "node scripts/validate.js"
   },
   "keywords": [
