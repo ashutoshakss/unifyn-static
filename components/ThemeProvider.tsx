@@ -17,16 +17,23 @@ function getSystemPrefersDark() {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [mode, setMode] = useState<ThemeMode>('system');
+  const [mode, setMode] = useState<ThemeMode>('dark');
   const [isDark, setIsDark] = useState<boolean>(true);
 
   // Initialize from storage
   useEffect(() => {
     try {
-      const saved = (localStorage.getItem(STORAGE_KEY) as ThemeMode) || 'system';
-      setMode(saved);
+      const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+      const themeParamRaw = params?.get('theme')?.toLowerCase();
+      if (themeParamRaw === 'light' || themeParamRaw === 'dark' || themeParamRaw === 'system') {
+        setMode(themeParamRaw as ThemeMode);
+        try { localStorage.setItem(STORAGE_KEY, themeParamRaw); } catch {}
+        return;
+      }
+      const saved = (localStorage.getItem(STORAGE_KEY) as ThemeMode) || 'dark';
+      setMode(saved as ThemeMode);
     } catch {
-      setMode('system');
+      setMode('dark');
     }
   }, []);
 

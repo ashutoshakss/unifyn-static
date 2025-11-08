@@ -13,7 +13,7 @@ All Lighthouse issues have been resolved. Here's what was fixed:
 **Solution:**
 - Added explicit meta description tag in `app/layout.tsx`
 - The metadata API description is now supplemented with a manual `<meta name="description">` tag in the `<head>` section
-- Description: "Unifyn is India's first unified finance superapp - a broker agnostic trading app connecting Angel One, Zerodha, Upstox & more..."
+- Description: "Unifyn is a global unified finance platform - a broker agnostic trading app connecting major brokers..."
 
 **File Modified:** `app/layout.tsx`
 

@@ -31,8 +31,8 @@ This guide covers deploying the Unifyn static site to Cloudflare Pages.
 3. **Configure build settings**
    - **Project name**: `unifyn-trade` (or your choice)
    - **Production branch**: `main`
-   - **Build command**: Leave empty (static site, no build needed)
-   - **Build output directory**: `/` or `.`
+   - **Build command**: `npm run build`
+   - **Build output directory**: `out`
    - **Root directory**: `/`
 
 4. **Environment variables** (if needed)
@@ -60,7 +60,7 @@ This guide covers deploying the Unifyn static site to Cloudflare Pages.
 
 3. **Deploy**
    ```bash
-   wrangler pages deploy . --project-name=unifyn-trade
+   wrangler pages deploy out --project-name=unifyn-trade
    ```
 
 ## Custom Domain Setup
@@ -189,7 +189,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: unifyn-trade
-          directory: .
+          directory: out
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 ```
 
@@ -212,7 +212,7 @@ aws s3 mb s3://unifyn.trade
 aws s3 website s3://unifyn.trade --index-document index.html --error-document 404.html
 
 # Upload files
-aws s3 sync . s3://unifyn.trade --exclude ".git/*" --exclude "node_modules/*"
+aws s3 sync out s3://unifyn.trade --exclude ".git/*" --exclude "node_modules/*"
 
 # Set public read access
 aws s3api put-bucket-policy --bucket unifyn.trade --policy file://s3-policy.json

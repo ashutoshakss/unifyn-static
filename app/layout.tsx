@@ -1,4 +1,6 @@
 import './globals.css';
+import './themes/light.css';
+import './themes/dark.css';
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import { ModalProvider } from '../components/ModalProvider';
@@ -17,10 +19,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://unifyn.trade'),
   title: {
-    default: "Unifyn — India's First Unified Finance Superapp | Broker Agnostic Trading Platform",
+    default: "Unifyn — Global Unified Finance Platform | Broker Agnostic Trading",
     template: '%s | Unifyn - Unified Finance Superapp'
   },
-  description: 'Unifyn is India\'s first unified finance superapp - a broker agnostic trading app connecting Angel One, Zerodha, Upstox & more. Experience unified finance with one seamless trading interface, analytics, and ledger. Trade smarter across multiple brokers.',
+  description: 'Unifyn is a global unified finance platform — a broker agnostic trading app designed to connect your existing broker accounts. Experience unified finance with one seamless trading interface, analytics, and ledger.',
   keywords: [
     'unified finance superapp',
     'broker agnostic trading app',
@@ -28,19 +30,18 @@ export const metadata: Metadata = {
     'unified finance platform',
     'broker agnostic platform',
     'multi broker trading app',
-    'unified trading platform India',
-    'connect multiple brokers',
-    'Angel One Zerodha integration',
+    'global unified trading platform',
+    'connect your existing brokers',
     'trading analytics platform',
     'unified trading interface',
     'broker independent trading',
     'multi-broker portfolio management',
     'consolidated trading platform',
-    'India fintech superapp'
+    'fintech superapp'
   ],
-  authors: [{ name: 'Unifyn Technologies' }],
-  creator: 'Unifyn Technologies',
-  publisher: 'Unifyn Technologies',
+  authors: [{ name: 'Infigon Electric Pvt Ltd' }],
+  creator: 'Infigon Electric Pvt Ltd',
+  publisher: 'Infigon Electric Pvt Ltd',
   robots: {
     index: true,
     follow: true,
@@ -57,11 +58,11 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'en_IN',
+    locale: 'en',
     url: 'https://unifyn.trade',
     siteName: 'Unifyn - Unified Finance Superapp',
-    title: "India's First Unified Finance Superapp | Broker Agnostic Trading Platform",
-    description: 'Experience unified finance with Unifyn - India\'s premier broker agnostic trading app. Connect Angel One, Zerodha, Upstox & more in one seamless interface.',
+    title: "Global Unified Finance Platform | Broker Agnostic Trading Platform",
+    description: 'Experience unified finance with Unifyn — a global, broker agnostic trading app. Connect your existing broker accounts in one seamless interface.',
     images: [
       {
         url: '/assets/img/logo-dark.svg',
@@ -75,8 +76,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@unifyn',
     creator: '@unifyn',
-    title: "India's First Unified Finance Superapp | Broker Agnostic Trading",
-    description: 'Unified finance made simple. Connect multiple brokers, trade smarter with our broker agnostic trading app.',
+    title: "Global Unified Finance Platform | Broker Agnostic Trading",
+    description: 'Unified finance made simple. Connect your existing brokers and trade smarter with our broker agnostic trading app.',
     images: ['/assets/img/logo-dark.svg'],
   },
   icons: [
@@ -114,7 +115,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       {
         '@type': 'Organization',
         '@id': 'https://unifyn.trade/#organization',
-        name: 'Unifyn Technologies',
+        name: 'Infigon Electric Pvt Ltd',
         url: 'https://unifyn.trade',
         logo: {
           '@type': 'ImageObject',
@@ -122,7 +123,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           width: 200,
           height: 60,
         },
-        description: "India's first unified finance superapp and broker agnostic trading platform",
+        description: "Global unified finance platform and broker agnostic trading platform",
         sameAs: [
           'https://twitter.com/unifyn',
           'https://linkedin.com/company/unifyn',
@@ -132,14 +133,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           '@type': 'ContactPoint',
           email: 'support@unifyn.trade',
           contactType: 'Customer Support',
-          areaServed: 'IN',
+          areaServed: 'Worldwide',
           availableLanguage: ['English', 'Hindi'],
         },
         address: {
           '@type': 'PostalAddress',
           addressLocality: 'Bengaluru',
           addressRegion: 'Karnataka',
-          addressCountry: 'IN',
         },
       },
       {
@@ -156,7 +156,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           target: 'https://unifyn.trade/?s={search_term_string}',
           'query-input': 'required name=search_term_string',
         },
-        inLanguage: 'en-IN',
+        inLanguage: 'en',
       },
       {
         '@type': 'SoftwareApplication',
@@ -168,9 +168,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         offers: {
           '@type': 'Offer',
           price: '0',
-          priceCurrency: 'INR',
+          priceCurrency: 'USD',
         },
-        description: 'Unified finance superapp - broker agnostic trading platform for India. Connect Angel One, Zerodha, Upstox and more in one interface.',
+        description: 'Unified finance superapp — broker agnostic trading platform. Connect your existing broker accounts in one interface.',
         featureList: [
           'Unified Login across Multiple Brokers',
           'Smart Trading with Keyboard Shortcuts',
@@ -190,7 +190,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         '@type': 'WebPage',
         '@id': 'https://unifyn.trade/#webpage',
         url: 'https://unifyn.trade',
-        name: "India's First Unified Finance Superapp | Broker Agnostic Trading Platform",
+        name: "Global Unified Finance Platform | Broker Agnostic Trading Platform",
         description: 'Unified finance made simple with Unifyn - broker agnostic trading app. Connect multiple brokers, trade smarter.',
         isPartOf: {
           '@id': 'https://unifyn.trade/#website',
@@ -202,7 +202,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           '@type': 'ImageObject',
           url: 'https://unifyn.trade/assets/img/logo-dark.svg',
         },
-        inLanguage: 'en-IN',
+        inLanguage: 'en',
         potentialAction: {
           '@type': 'ReadAction',
           target: ['https://unifyn.trade'],
@@ -212,15 +212,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <html lang="en-IN" className={`scroll-smooth dark ${inter.variable}`}>
+    <html lang="en" className={`scroll-smooth ${inter.variable} dark`} suppressHydrationWarning>
       <head>
-        <meta name="description" content="Unifyn is India's first unified finance superapp - a broker agnostic trading app connecting Angel One, Zerodha, Upstox & more. Experience unified finance with one seamless trading interface, analytics, and ledger. Trade smarter across multiple brokers." />
+        <meta name="description" content="Unifyn is a global unified finance platform — a broker agnostic trading app designed to connect your existing broker accounts. Experience unified finance with one seamless trading interface, analytics, and ledger." />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className={`${inter.className} bg-slate-950 text-slate-100 antialiased relative`}>
+      <body className={`${inter.className} bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 antialiased relative`}>
         <ThemeProvider>
           <ModalProvider>{children}</ModalProvider>
         </ThemeProvider>

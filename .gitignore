@@ -1,3 +1,5 @@
+# Build artifacts
+/build/
 # Dependencies
 node_modules/
 npm-debug.log*
@@ -78,9 +80,4 @@ coverage/
 secrets.json
 credentials.json
 
-
-
-
-
-
-
+.next/

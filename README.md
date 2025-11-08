@@ -1,4 +1,4 @@
-# Unifyn — India's First Unified Trading Hub
+# Unifyn — Global Unified Finance Platform
 
 <div align="center">
 
@@ -13,7 +13,7 @@
 
 ## 📋 Overview
 
-Static, multi-page marketing website for **Unifyn** — India's first unified, broker-agnostic trading hub. Built with modern web standards for maximum performance and SEO.
+Static, multi-page marketing website for **Unifyn** — a global unified, broker-agnostic trading hub. Built with modern web standards for maximum performance and SEO.
 
 ### 🎯 Features
 

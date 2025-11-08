@@ -1,0 +1,49 @@
+/* Dark theme tokens */
+html.dark {
+  /* Base */
+  --bg: #0f172a; /* slate-900/950 area */
+  --text: #e2e8f0; /* slate-200 */
+  --color-heading: #ffffff;
+  --color-muted: #cbd5e1; /* slate-300 */
+  --border: rgba(148, 163, 184, 0.15); /* slate-400 @ 15% */
+
+  /* Cards and surfaces */
+  --card-bg: rgba(2, 6, 23, 0.5); /* slate-950 @ 50% */
+  --card-border: rgba(148, 163, 184, 0.15);
+
+  /* Hero */
+  --hero-gradient-from: #0f172a; /* slate-900 */
+  --hero-gradient-via: #0f172a;
+  --hero-gradient-to: #020617; /* slate-950 */
+  --hero-accent: #22d3ee; /* cyan-400 */
+  --hero-radial-from: rgba(56, 189, 248, 0.20); /* sky-400 @ 20% */
+  --hero-glow-from: rgba(14, 165, 233, 0.10);
+  --hero-glow-to: rgba(59, 130, 246, 0.10);
+  --hero-centerline-from: rgba(255, 255, 255, 0.40);
+  --hero-centerline-via: rgba(255, 255, 255, 0.10);
+  --hero-star: rgba(255, 255, 255, 0.20);
+  --hero-star-accent: rgba(34, 211, 238, 0.30);
+  --hero-badge-bg: rgba(14, 165, 233, 0.10);
+  --hero-badge-border: rgba(14, 165, 233, 0.20);
+  --hero-badge-text: #67e8f9; /* cyan-300 */
+
+  /* Buttons */
+  --button-primary-bg: #0ea5e9; /* cyan-500/600 */
+  --button-primary-bg-hover: #0284c7;
+  --button-primary-text: #ffffff;
+
+  --button-secondary-bg: rgba(255, 255, 255, 0.05);
+  --button-secondary-bg-hover: rgba(255, 255, 255, 0.10);
+  --button-secondary-border: rgba(255, 255, 255, 0.20);
+  --button-secondary-text: #ffffff;
+
+  /* Inputs */
+  --input-bg: #0b1220; /* deep slate */
+  --input-border: #334155; /* slate-700 */
+  --input-placeholder: #64748b; /* slate-500 */
+
+  /* Focus */
+  --focus-ring: #06b6d4; /* cyan-500-ish */
+}
+
+

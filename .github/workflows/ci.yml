@@ -1,0 +1,57 @@
+name: CI - Build and Test
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    branches:
+      - main
+      - live
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Type check
+        run: npx tsc --noEmit
+      
+      - name: Build
+        run: npm run build
+        env:
+          NODE_ENV: production
+      
+      - name: Check build output
+        run: |
+          if [ ! -d "out" ]; then
+            echo "Build failed - 'out' directory not found"
+            exit 1
+          fi
+          if [ ! -f "out/index.html" ]; then
+            echo "Build failed - 'out/index.html' not found"
+            exit 1
+          fi
+          echo "✅ Build successful"
+          echo "Build size:"
+          du -sh out
+      
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: out/
+          retention-days: 7
+

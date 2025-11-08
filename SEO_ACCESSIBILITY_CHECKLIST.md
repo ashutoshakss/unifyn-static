@@ -11,7 +11,7 @@
 - [x] Twitter Cards implementation
 - [x] Robots.txt properly configured
 - [x] Updated sitemap.xml with lastmod dates
-- [x] Proper HTML lang attribute (en-IN)
+- [x] Proper HTML lang attribute (en)
 
 ### Structured Data (JSON-LD)
 - [x] Organization schema

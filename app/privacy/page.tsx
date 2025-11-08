@@ -1,10 +1,13 @@
+import { use } from 'react';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import type { Metadata } from 'next';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'Privacy Policy for Unifyn - India\'s unified finance superapp and broker agnostic trading platform. Learn how we protect your data and ensure privacy in our trading platform.',
+  description: 'Privacy Policy for Unifyn - global unified finance platform and broker agnostic trading platform. Learn how we protect your data and ensure privacy in our trading platform.',
   keywords: [
     'Unifyn privacy policy',
     'unified finance privacy',
@@ -28,12 +31,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PrivacyPage() {
+export default function PrivacyPage(props: { searchParams?: Promise<{ [key: string]: string | string[] | undefined }> }) {
+  const searchParams = props.searchParams ? use(props.searchParams) : {};
+  const sourceParamRaw = Array.isArray(searchParams?.source) ? searchParams.source[0] : searchParams?.source;
+  const hideChrome = typeof sourceParamRaw === 'string' && sourceParamRaw.toLowerCase() === 'mobile';
   return (
     <>
-      <a href="#content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-cyan-500 text-white px-4 py-2 rounded-lg z-50">Skip to main content</a>
-      <Header />
-      <main id="content" className="relative pt-32 pb-20" role="main">
+      {!hideChrome && <Header />}
+      <main id="content" className="relative pt-28 pb-12" role="main">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <article className="rounded-2xl border border-slate-800 bg-slate-900/50 backdrop-blur-sm p-8 lg:p-12 prose prose-invert prose-slate max-w-none" role="article" aria-labelledby="privacy-heading">
             <h1 id="privacy-heading" className="text-4xl font-bold text-white mb-2">Privacy Policy</h1>
@@ -47,14 +52,14 @@ export default function PrivacyPage() {
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">6. Your Rights</h2><p>You have the right to:</p><ul className="list-disc pl-6 space-y-2"><li>Access your personal data.</li><li>Request correction or deletion.</li><li>Withdraw consent or revoke broker permissions.</li><li>Export your data (CSV ledger, etc.).</li></ul><p>To exercise these rights, contact <a href="mailto:privacy@unifyn.trade" className="text-cyan-400 hover:text-cyan-300">privacy@unifyn.trade</a>.</p></section>
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">7. Cookies & Analytics</h2><p>We use minimal cookies for session management. Analytics (GA4 or Plausible) are privacy-first and require consent. You can disable analytics at any time.</p></section>
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">8. Children's Privacy</h2><p>Unifyn is not intended for users under 18. We do not knowingly collect data from minors.</p></section>
-              <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">9. International Users</h2><p>Unifyn is designed for users in India. By using our service, you consent to data processing in India.</p></section>
+            <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">9. International Users</h2><p>Unifyn is designed for a global audience. By using our service, you consent to data processing in the regions where we operate and host our services.</p></section>
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">10. Changes to This Policy</h2><p>We may update this Privacy Policy. Continued use after updates constitutes acceptance.</p></section>
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">11. Contact</h2><p>For privacy questions, email <a href="mailto:privacy@unifyn.trade" className="text-cyan-400 hover:text-cyan-300">privacy@unifyn.trade</a></p></section>
             </div>
           </article>
         </div>
       </main>
-      <Footer />
+      {!hideChrome && <Footer />}
     </>
   );
 }
