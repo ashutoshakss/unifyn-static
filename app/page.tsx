@@ -37,7 +37,7 @@ export default function HomePage({ searchParams }: { searchParams: { [key: strin
         name: 'Which brokers does this broker agnostic platform support?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Support for leading Indian brokers is planned. Specific broker integrations will be announced after they go live. No broker integrations are live yet.',
+          text: 'Support for leading brokers worldwide is planned. Specific broker integrations will be announced after they go live. No broker integrations are live yet.',
         },
       },
       {
@@ -90,25 +90,24 @@ export default function HomePage({ searchParams }: { searchParams: { [key: strin
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl max-h-4xl">
           <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[var(--hero-glow-from)] to-[var(--hero-glow-to)] blur-3xl"></div>
         </div>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full bg-gradient-to-b from-[var(--hero-centerline-from)] via-[var(--hero-centerline-via)] to-transparent"></div>
         <div className="absolute top-20 left-1/4 w-1 h-1 bg-[var(--hero-star)] rounded-full"></div>
         <div className="absolute top-40 right-1/3 w-1 h-1 bg-[var(--hero-star)] rounded-full"></div>
         <div className="absolute bottom-1/3 left-1/3 w-1 h-1 bg-[var(--hero-star-accent)] rounded-full"></div>
         <div className="absolute top-2/3 right-1/4 w-1 h-1 bg-[var(--hero-star)] rounded-full"></div>
       </div>
       {!hideChrome && <Header />}
-      <main id="content" className="relative" role="main">
-        <section aria-labelledby="hero-heading" className="min-h-screen flex items-center justify-center pt-28 md:pt-20 pb-12">
+      <main id="content" className="relative pt-20 md:pt-24" role="main">
+        <section aria-labelledby="hero-heading" className="min-h-screen flex items-center justify-center pb-12">
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-[var(--hero-badge-border)] bg-[var(--hero-badge-bg)] px-3 sm:px-4 py-1.5 text-xs sm:text-sm text-[var(--hero-badge-text)] mb-6 sm:mb-8 backdrop-blur-sm" role="banner">
-              <span aria-label="India's first unified finance superapp" className="leading-tight">India's first unified finance superapp - broker‑agnostic platform</span>
+              <span aria-label="Global unified finance platform" className="leading-tight">Global unified finance platform - broker‑agnostic</span>
             </div>
             <h1 id="hero-heading" className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[var(--color-heading)] mb-4 sm:mb-6 leading-tight">
               Unified Finance Superapp<br/>
               <span className="text-[var(--hero-accent)]">Broker Agnostic Trading</span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-[var(--color-muted)] mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed px-2">
-              Experience <strong>unified finance</strong> with India's premier <strong>broker agnostic trading app</strong>. Connect your existing broker accounts in one seamless interface for trading, analytics and ledger management.
+              Experience <strong>unified finance</strong> with a global, <strong>broker agnostic trading app</strong>. Connect your existing broker accounts in one seamless interface for trading, analytics and ledger management.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4" role="group" aria-label="Call to action buttons">
               {SHOW_BROKER_UI && (
@@ -132,19 +131,19 @@ export default function HomePage({ searchParams }: { searchParams: { [key: strin
               <strong>Disclaimer:</strong> Unifyn is not a stock broker. Market investments are subject to risks. No broker integrations are live yet.
             </p>
             <div className="mt-12 sm:mt-16">
-              <p className="text-xs sm:text-sm text-[var(--color-muted)] mb-3 sm:mb-4 px-4">Built for India. Broker-agnostic unified finance.</p>
+              <p className="text-xs sm:text-sm text-[var(--color-muted)] mb-3 sm:mb-4 px-4">Built for everyone. Broker-agnostic unified finance.</p>
             </div>
           </div>
         </section>
 
-        <section id="features" aria-labelledby="features-heading" className="py-10 sm:py-12 relative">
+        <section id="features" aria-labelledby="features-heading" className="pt-24 md:pt-28 pb-10 sm:pb-12 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <header className="text-center mb-6 sm:mb-8">
               <h2 id="features-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--color-heading)] mb-3 sm:mb-4 px-2">
                 Unified Finance Platform Features
               </h2>
               <p className="text-base sm:text-lg text-[var(--color-muted)] max-w-2xl mx-auto leading-relaxed px-2">
-                Experience <strong>broker agnostic trading</strong> with our <strong>unified finance superapp</strong>. Designed to connect your existing broker accounts in one app. Get unified trading analytics for India with fast, keyboard‑first execution.
+                Experience <strong>broker agnostic trading</strong> with our <strong>unified finance superapp</strong>. Designed to connect your existing broker accounts in one app. Get unified trading analytics with fast, keyboard‑first execution.
               </p>
             </header>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -182,7 +181,7 @@ export default function HomePage({ searchParams }: { searchParams: { [key: strin
           </div>
         </section>
 
-        <section id="pricing" aria-labelledby="pricing-heading" className="py-10 sm:py-12 relative">
+        <section id="pricing" aria-labelledby="pricing-heading" className="pt-24 md:pt-28 pb-10 sm:pb-12 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <header className="text-center">
               <h2 id="pricing-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--color-heading)] mb-3 sm:mb-4 px-2">
@@ -198,7 +197,7 @@ export default function HomePage({ searchParams }: { searchParams: { [key: strin
           </div>
         </section>
 
-        <section id="security" aria-labelledby="security-heading" className="py-10 sm:py-12 relative">
+        <section id="security" aria-labelledby="security-heading" className="pt-24 md:pt-28 pb-10 sm:pb-12 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <header className="text-center mb-6 sm:mb-8">
               <h2 id="security-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--color-heading)] mb-3 sm:mb-4 px-2">
@@ -288,7 +287,7 @@ export default function HomePage({ searchParams }: { searchParams: { [key: strin
                   <span className="text-cyan-400 text-2xl group-open:rotate-180 transition-transform shrink-0" aria-hidden="true">+</span>
                 </summary>
                 <p className="mt-3 sm:mt-4 text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">
-                  Unifyn supports major Indian brokers including Angel One, Zerodha, Upstox, ICICI Direct, HDFC Securities, 5Paisa, and Kotak Securities. As a <strong>broker agnostic trading app</strong>, we continue to add more brokers to provide comprehensive <strong>unified finance</strong> coverage.
+                  Unifyn plans to support major brokers across regions. As a <strong>broker agnostic trading app</strong>, we continue to add more integrations to provide comprehensive <strong>unified finance</strong> coverage. Specific broker integrations will be announced after they go live.
                 </p>
               </details>
               <details className="rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] backdrop-blur-sm p-5 sm:p-6 hover:border-cyan-500/30 transition-colors group">
@@ -331,7 +330,7 @@ export default function HomePage({ searchParams }: { searchParams: { [key: strin
           </div>
         </section>
 
-        <section id="contact" aria-labelledby="contact-heading" className="py-10 sm:py-12 relative">
+        <section id="contact" aria-labelledby="contact-heading" className="pt-24 md:pt-28 pb-10 sm:pb-12 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mx-auto">
               <header className="text-center mb-6 sm:mb-8">
@@ -392,7 +391,7 @@ export default function HomePage({ searchParams }: { searchParams: { [key: strin
                     Prefer email? <a href="mailto:support@unifyn.trade" className="text-[var(--hero-accent)] hover:opacity-90 transition-colors underline break-all">support@unifyn.trade</a>
                   </p>
                   <address className="mt-2 not-italic text-sm sm:text-base text-[var(--color-muted)]">
-                    Bengaluru, Karnataka, India
+                    Bengaluru, Karnataka
                   </address>
                 </div>
               </div>

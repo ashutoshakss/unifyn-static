@@ -26,7 +26,7 @@ This document outlines all the SEO, AEO (Answer Engine Optimization), and access
 ### 1.2 Open Graph & Social Media (layout.tsx)
 ✅ **Implemented:**
 - Full Open Graph protocol support
-- Locale set to `en_IN` for Indian market
+- Locale set to `en` for a global audience
 - Optimized OG title and description with keywords
 - OG image with proper dimensions (1200x630)
 - Twitter Card implementation (summary_large_image)
@@ -207,10 +207,10 @@ This document outlines all the SEO, AEO (Answer Engine Optimization), and access
 
 ### 4.3 Language & Locale
 ✅ **Configured:**
-- `lang="en-IN"` on HTML element
-- Locale set to `en_IN` in Open Graph
-- Region targeting: India (IN)
-- Currency: INR in structured data
+- `lang="en"` on HTML element
+- Locale set to `en` in Open Graph
+- Region targeting: Global (no single-country bias)
+- Currency: USD in structured data
 
 ## 5. Content Strategy
 

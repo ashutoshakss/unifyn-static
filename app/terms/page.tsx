@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Terms & Conditions',
-  description: 'Terms and Conditions for Unifyn - India\'s unified finance superapp and broker agnostic trading platform. Understand the terms of using our platform.',
+  description: 'Terms and Conditions for Unifyn - global unified finance platform and broker agnostic trading platform. Understand the terms of using our platform.',
   keywords: [
     'Unifyn terms',
     'unified finance terms',
@@ -41,7 +41,7 @@ export default function TermsPage({ searchParams }: { searchParams: { [key: stri
             <p className="text-sm text-slate-400 mb-8" role="contentinfo">Last updated: January 1, 2025</p>
             <div className="space-y-6 text-slate-300">
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">1. Acceptance of Terms</h2><p>By using Unifyn, you agree to these Terms & Conditions. If you do not agree, do not use our services.</p></section>
-              <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">2. Service Description</h2><p>Unifyn provides a unified interface for connecting to multiple stock brokers in India. We are not a stock broker. All trades are executed via your registered broker's API under their terms.</p></section>
+              <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">2. Service Description</h2><p>Unifyn provides a unified interface for connecting to multiple stock brokers. We are not a stock broker. All trades are executed via your registered broker's API under their terms.</p></section>
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">3. User Obligations</h2><ul className="list-disc pl-6 space-y-2"><li>You must be 18 years or older.</li><li>You are responsible for maintaining the confidentiality of your account.</li><li>You agree to provide accurate information.</li><li>You will not misuse or abuse the service.</li></ul></section>
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">4. Broker Authentication</h2><p>When connecting a broker, you will be redirected to your broker's OAuth login. Unifyn never stores your broker password. You grant Unifyn read/write trading permissions as approved by you during OAuth consent.</p></section>
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">5. No Investment Advice</h2><p>Unifyn does not provide investment advice. All analytics, reports, and features are informational. You are solely responsible for your trading decisions.</p></section>
@@ -49,7 +49,7 @@ export default function TermsPage({ searchParams }: { searchParams: { [key: stri
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">7. Limitation of Liability</h2><p>Unifyn is provided "as is" without warranties. We are not liable for losses arising from use of our service, downtime, or data loss.</p></section>
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">8. Termination</h2><p>We reserve the right to suspend or terminate your account at our discretion, including for violation of these Terms.</p></section>
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">9. Changes to Terms</h2><p>We may update these Terms from time to time. Continued use after changes constitutes acceptance.</p></section>
-              <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">10. Governing Law</h2><p>These Terms are governed by the laws of India. Any disputes will be subject to the exclusive jurisdiction of courts in Bengaluru, Karnataka.</p></section>
+              <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">10. Governing Law</h2><p>These Terms are governed by applicable laws. Any disputes will be subject to the exclusive jurisdiction of the competent courts.</p></section>
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">11. Contact</h2><p>For questions about these Terms, contact us at <a href="mailto:legal@unifyn.trade" className="text-cyan-400 hover:text-cyan-300">legal@unifyn.trade</a></p></section>
             </div>
           </article>

@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'Privacy Policy for Unifyn - India\'s unified finance superapp and broker agnostic trading platform. Learn how we protect your data and ensure privacy in our trading platform.',
+  description: 'Privacy Policy for Unifyn - global unified finance platform and broker agnostic trading platform. Learn how we protect your data and ensure privacy in our trading platform.',
   keywords: [
     'Unifyn privacy policy',
     'unified finance privacy',
@@ -48,7 +48,7 @@ export default function PrivacyPage({ searchParams }: { searchParams: { [key: st
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">6. Your Rights</h2><p>You have the right to:</p><ul className="list-disc pl-6 space-y-2"><li>Access your personal data.</li><li>Request correction or deletion.</li><li>Withdraw consent or revoke broker permissions.</li><li>Export your data (CSV ledger, etc.).</li></ul><p>To exercise these rights, contact <a href="mailto:privacy@unifyn.trade" className="text-cyan-400 hover:text-cyan-300">privacy@unifyn.trade</a>.</p></section>
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">7. Cookies & Analytics</h2><p>We use minimal cookies for session management. Analytics (GA4 or Plausible) are privacy-first and require consent. You can disable analytics at any time.</p></section>
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">8. Children's Privacy</h2><p>Unifyn is not intended for users under 18. We do not knowingly collect data from minors.</p></section>
-              <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">9. International Users</h2><p>Unifyn is designed for users in India. By using our service, you consent to data processing in India.</p></section>
+            <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">9. International Users</h2><p>Unifyn is designed for a global audience. By using our service, you consent to data processing in the regions where we operate and host our services.</p></section>
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">10. Changes to This Policy</h2><p>We may update this Privacy Policy. Continued use after updates constitutes acceptance.</p></section>
               <section><h2 className="text-2xl font-semibold text-white mt-8 mb-4">11. Contact</h2><p>For privacy questions, email <a href="mailto:privacy@unifyn.trade" className="text-cyan-400 hover:text-cyan-300">privacy@unifyn.trade</a></p></section>
             </div>

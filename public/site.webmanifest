@@ -1,13 +1,13 @@
 {
   "name": "Unifyn - Unified Finance Superapp",
   "short_name": "Unifyn",
-  "description": "India's first unified finance superapp and broker agnostic trading platform. Connect your existing broker accounts in one seamless interface for unified finance.",
+  "description": "Global unified finance platform and broker agnostic trading platform. Connect your existing broker accounts in one seamless interface for unified finance.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#020617",
   "theme_color": "#0ea5e9",
-  "lang": "en-IN",
+  "lang": "en",
   "categories": ["finance", "business", "productivity"],
   "orientation": "any",
   "icons": [

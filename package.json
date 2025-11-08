@@ -1,7 +1,7 @@
 {
   "name": "unifyn-trade",
   "version": "1.0.0",
-  "description": "India's first unified, broker-agnostic trading hub for India",
+  "description": "Global unified, broker-agnostic trading hub",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000",
@@ -19,13 +19,13 @@
     "unified finance",
     "broker agnostic platform",
     "multi broker trading",
-    "trading platform India",
+    "global trading platform",
     "multi-broker integration (planned)",
     "unified trading interface",
     "fintech superapp",
     "broker independent trading",
     "consolidated trading platform",
-    "portfolio management India",
+    "portfolio management",
     "trading analytics platform",
     "multi-broker app"
   ],

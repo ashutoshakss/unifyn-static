@@ -8,6 +8,9 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const logoSrc = isDark ? '/assets/img/logo-dark.svg' : '/assets/img/logo-light.svg';
 
+  const baseNavLinkClass =
+    "px-4 py-1.5 rounded-full text-sm text-slate-700 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-all focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-500 focus-visible:bg-black/5 dark:focus-visible:bg-white/10 focus-visible:ring-offset-1 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950";
+
   // Close menu on escape key and prevent body scroll
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -26,11 +29,13 @@ export function Header() {
     };
   }, [mobileMenuOpen]);
 
+  // Note: Anchor offset handled via static CSS in globals.css
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 md:bg-transparent md:backdrop-blur-none backdrop-blur-lg md:border-b-0 border-b border-slate-200/60 dark:border-slate-800/50" role="banner">
-      <nav className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 md:py-6 flex items-center justify-between" aria-label="Main navigation">
+      <nav className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 md:py-6 grid items-center grid-cols-[1fr_auto_1fr]" aria-label="Main navigation">
         {/* Logo - LEFT SIDE */}
-        <Link href="/" className="flex items-center focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-950 rounded-lg shrink-0">
+        <Link href="/" className="flex items-center justify-self-start focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-950 rounded-lg shrink-0">
           <img
             src={logoSrc}
             onError={(e) => {
@@ -44,16 +49,16 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-1 rounded-full px-2 py-1.5 backdrop-blur-xl border border-slate-200/60 dark:border-slate-700/30 shadow-lg" role="navigation" aria-label="Primary">
-          <Link href="/" className="px-4 py-1.5 rounded-full text-sm text-slate-700 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:bg-black/5 dark:focus:bg-white/10 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-950" aria-label="Go to home page">Home</Link>
-          <Link href="/#features" className="px-4 py-1.5 rounded-full text-sm text-slate-700 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:bg-black/5 dark:focus:bg-white/10 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-950" aria-label="View platform features">Features</Link>
-          <Link href="/#pricing" className="px-4 py-1.5 rounded-full text-sm text-slate-700 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:bg-black/5 dark:focus:bg-white/10 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-950" aria-label="View pricing plans">Pricing</Link>
-          <Link href="/#security" className="px-4 py-1.5 rounded-full text-sm text-slate-700 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:bg-black/5 dark:focus:bg-white/10 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-950" aria-label="Learn about security">Security</Link>
-          <Link href="/#contact" className="px-4 py-1.5 rounded-full text-sm text-slate-700 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:bg-black/5 dark:focus:bg-white/10 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-950" aria-label="Contact us">Contact</Link>
+        <div className="hidden md:flex items-center gap-2 justify-self-center rounded-full px-2 py-1.5 backdrop-blur-xl border border-slate-200/60 dark:border-slate-700/30 shadow-lg" role="navigation" aria-label="Primary">
+          <Link href="/" className={baseNavLinkClass} aria-label="Go to home page">Home</Link>
+          <Link href="/#features" className={baseNavLinkClass} aria-label="View platform features">Features</Link>
+          <Link href="/#pricing" className={baseNavLinkClass} aria-label="View pricing plans">Pricing</Link>
+          <Link href="/#security" className={baseNavLinkClass} aria-label="Learn about security">Security</Link>
+          <Link href="/#contact" className={baseNavLinkClass} aria-label="Contact us">Contact</Link>
         </div>
 
         {/* Desktop Actions */}
-        <div className="hidden md:flex items-center gap-3" role="navigation" aria-label="User actions">
+        <div className="hidden md:flex items-center gap-3 justify-self-end" role="navigation" aria-label="User actions">
           <button 
             data-open-modal="login" 
             className="text-sm text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-950 rounded px-2 py-1"
@@ -85,7 +90,7 @@ export function Header() {
         {/* Mobile Menu Button - RIGHT SIDE */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-lg -mr-2"
+          className="md:hidden justify-self-end p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-lg -mr-2"
           aria-label="Toggle mobile menu"
           aria-expanded={mobileMenuOpen}
         >

@@ -215,7 +215,7 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
                   <svg className="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                 </div>
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Get early access</h2>
-                <p className="text-sm text-slate-600 dark:text-slate-400">Be among the first to experience India's unified trading hub. No spam, unsubscribe anytime.</p>
+                <p className="text-sm text-slate-600 dark:text-slate-400">Be among the first to experience our global unified trading hub. No spam, unsubscribe anytime.</p>
               </div>
               <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); close(); }}>
                 <div>

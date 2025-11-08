@@ -21,7 +21,7 @@ export function Footer() {
               className="h-7 sm:h-8 w-auto"
             />
           </a>
-          <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed max-w-md">India's first <strong>unified finance superapp</strong> and <strong>broker‑agnostic trading platform</strong>.</p>
+          <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed max-w-md">Global <strong>unified finance platform</strong> and <strong>broker‑agnostic trading platform</strong>.</p>
         </div>
 
         {/* Legal Links */}
