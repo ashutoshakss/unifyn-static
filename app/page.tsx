@@ -1,12 +1,20 @@
-import { use } from 'react';
+'use client';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { SHOW_BROKER_UI } from './config';
+import { useEffect, useState } from 'react';
 
-export const dynamic = 'force-static';
+export default function HomePage() {
+  const [hideChrome, setHideChrome] = useState(false);
 
-export default function HomePage(props: { searchParams?: Promise<{ [key: string]: string | string[] | undefined }> }) {
-  const searchParams = props.searchParams ? use(props.searchParams) : {};
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const sourceParam = params.get('source')?.toLowerCase();
+      setHideChrome(sourceParam === 'mobile');
+    }
+  }, []);
+
   // FAQ Structured Data for AEO
   const faqStructuredData = {
     '@context': 'https://schema.org',
@@ -78,9 +86,6 @@ export default function HomePage(props: { searchParams?: Promise<{ [key: string]
       },
     ],
   };
-
-  const sourceParamRaw = Array.isArray(searchParams?.source) ? searchParams.source[0] : searchParams?.source;
-  const hideChrome = typeof sourceParamRaw === 'string' && sourceParamRaw.toLowerCase() === 'mobile';
 
   return (
     <>
