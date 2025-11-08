@@ -4,8 +4,9 @@ import { useTheme } from './ThemeProvider';
 import { useState, useEffect } from 'react';
 
 export function Header() {
-  const { mode, setMode } = useTheme();
+  const { mode, setMode, isDark } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const logoSrc = isDark ? '/assets/img/logo-dark.svg' : '/assets/img/logo-light.svg';
 
   // Close menu on escape key and prevent body scroll
   useEffect(() => {
@@ -26,34 +27,43 @@ export function Header() {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 md:bg-transparent bg-slate-950/80 md:backdrop-blur-none backdrop-blur-lg md:border-b-0 border-b border-slate-800/50" role="banner">
+    <header className="fixed top-0 left-0 right-0 z-50 md:bg-transparent md:backdrop-blur-none backdrop-blur-lg md:border-b-0 border-b border-slate-200/60 dark:border-slate-800/50" role="banner">
       <nav className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 md:py-6 flex items-center justify-between" aria-label="Main navigation">
         {/* Logo - LEFT SIDE */}
-        <Link href="/" className="flex items-center focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-950 rounded-lg shrink-0">
-          <img src="/assets/img/logo-dark.svg" alt="Unifyn - Unified Finance Superapp Logo" className="h-6 sm:h-8 w-auto" />
+        <Link href="/" className="flex items-center focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-950 rounded-lg shrink-0">
+          <img
+            src={logoSrc}
+            onError={(e) => {
+              if ((e.currentTarget as HTMLImageElement).src.includes('logo-light.svg')) {
+                (e.currentTarget as HTMLImageElement).src = '/assets/img/logo-dark.svg';
+              }
+            }}
+            alt="Unifyn - Unified Finance Superapp Logo"
+            className="h-6 sm:h-8 w-auto"
+          />
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-1 rounded-full px-2 py-1.5 bg-slate-900/40 backdrop-blur-xl border border-slate-700/30 shadow-lg" role="navigation" aria-label="Primary">
-          <Link href="/" className="px-4 py-1.5 rounded-full text-sm text-slate-300 hover:bg-white/10 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:bg-white/10" aria-label="Go to home page">Home</Link>
-          <Link href="/#features" className="px-4 py-1.5 rounded-full text-sm text-slate-300 hover:bg-white/10 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:bg-white/10" aria-label="View platform features">Features</Link>
-          <Link href="/#pricing" className="px-4 py-1.5 rounded-full text-sm text-slate-300 hover:bg-white/10 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:bg-white/10" aria-label="View pricing plans">Pricing</Link>
-          <Link href="/#security" className="px-4 py-1.5 rounded-full text-sm text-slate-300 hover:bg-white/10 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:bg-white/10" aria-label="Learn about security">Security</Link>
-          <Link href="/#contact" className="px-4 py-1.5 rounded-full text-sm text-slate-300 hover:bg-white/10 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:bg-white/10" aria-label="Contact us">Contact</Link>
+        <div className="hidden md:flex items-center gap-1 rounded-full px-2 py-1.5 backdrop-blur-xl border border-slate-200/60 dark:border-slate-700/30 shadow-lg" role="navigation" aria-label="Primary">
+          <Link href="/" className="px-4 py-1.5 rounded-full text-sm text-slate-700 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:bg-black/5 dark:focus:bg-white/10 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-950" aria-label="Go to home page">Home</Link>
+          <Link href="/#features" className="px-4 py-1.5 rounded-full text-sm text-slate-700 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:bg-black/5 dark:focus:bg-white/10 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-950" aria-label="View platform features">Features</Link>
+          <Link href="/#pricing" className="px-4 py-1.5 rounded-full text-sm text-slate-700 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:bg-black/5 dark:focus:bg-white/10 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-950" aria-label="View pricing plans">Pricing</Link>
+          <Link href="/#security" className="px-4 py-1.5 rounded-full text-sm text-slate-700 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:bg-black/5 dark:focus:bg-white/10 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-950" aria-label="Learn about security">Security</Link>
+          <Link href="/#contact" className="px-4 py-1.5 rounded-full text-sm text-slate-700 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:bg-black/5 dark:focus:bg-white/10 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-950" aria-label="Contact us">Contact</Link>
         </div>
 
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-3" role="navigation" aria-label="User actions">
           <button 
             data-open-modal="login" 
-            className="text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-950 rounded px-2 py-1"
+            className="text-sm text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-950 rounded px-2 py-1"
             aria-label="Login to Unifyn"
           >
             Login
           </button>
           <button 
             data-open-modal="signup" 
-            className="rounded-full px-5 py-2 text-sm font-semibold bg-cyan-700 text-white hover:bg-cyan-800 transition-colors shadow-lg shadow-cyan-700/20 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-950"
+            className="rounded-full px-5 py-2 text-sm font-semibold bg-cyan-700 text-white hover:bg-cyan-800 transition-colors shadow-lg shadow-cyan-700/20 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-950"
             aria-label="Sign up for Unifyn"
           >
             Signup
@@ -61,7 +71,7 @@ export function Header() {
           <div className="relative">
             <select
               aria-label="Select theme preference"
-              className="bg-transparent text-slate-300 border border-slate-700/30 rounded-full px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 cursor-pointer"
+              className="bg-transparent text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700/30 rounded-full px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 cursor-pointer"
               value={mode}
               onChange={(e) => setMode(e.target.value as any)}
             >
@@ -75,7 +85,7 @@ export function Header() {
         {/* Mobile Menu Button - RIGHT SIDE */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-slate-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-lg -mr-2"
+          className="md:hidden p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-lg -mr-2"
           aria-label="Toggle mobile menu"
           aria-expanded={mobileMenuOpen}
         >
@@ -95,13 +105,13 @@ export function Header() {
           />
           
           {/* Sidebar - RIGHT SIDE */}
-          <div className="md:hidden fixed top-0 right-0 h-screen w-80 bg-slate-900 border-l border-slate-700 shadow-2xl z-[70] flex flex-col">
+          <div className="md:hidden fixed top-0 right-0 h-screen w-80 bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-700 shadow-2xl z-[70] flex flex-col">
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b border-slate-700 shrink-0">
-              <span className="text-lg font-semibold text-white">Menu</span>
+            <div className="flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-700 shrink-0">
+              <span className="text-lg font-semibold text-slate-900 dark:text-white">Menu</span>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-2 text-slate-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-lg"
+                className="p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-lg"
                 aria-label="Close menu"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -115,35 +125,35 @@ export function Header() {
               <Link 
                 href="/" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-3 rounded-lg text-lg font-medium text-white hover:bg-slate-800 transition-all mb-2"
+                className="block px-4 py-3 rounded-lg text-lg font-medium text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all mb-2"
               >
                 Home
               </Link>
               <Link 
                 href="/#features" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-3 rounded-lg text-lg font-medium text-white hover:bg-slate-800 transition-all mb-2"
+                className="block px-4 py-3 rounded-lg text-lg font-medium text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all mb-2"
               >
                 Features
               </Link>
               <Link 
                 href="/#pricing" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-3 rounded-lg text-lg font-medium text-white hover:bg-slate-800 transition-all mb-2"
+                className="block px-4 py-3 rounded-lg text-lg font-medium text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all mb-2"
               >
                 Pricing
               </Link>
               <Link 
                 href="/#security" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-3 rounded-lg text-lg font-medium text-white hover:bg-slate-800 transition-all mb-2"
+                className="block px-4 py-3 rounded-lg text-lg font-medium text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all mb-2"
               >
                 Security
               </Link>
               <Link 
                 href="/#contact" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-3 rounded-lg text-lg font-medium text-white hover:bg-slate-800 transition-all"
+                className="block px-4 py-3 rounded-lg text-lg font-medium text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
               >
                 Contact
               </Link>
@@ -155,7 +165,7 @@ export function Header() {
                 <button 
                   data-open-modal="login" 
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex-1 px-4 py-2.5 rounded-lg text-base font-medium text-white hover:bg-slate-800 transition-all text-center border border-slate-700"
+                  className="flex-1 px-4 py-2.5 rounded-lg text-base font-medium text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-center border border-slate-200 dark:border-slate-700"
                 >
                   Login
                 </button>
@@ -168,9 +178,9 @@ export function Header() {
                 </button>
               </div>
               <div>
-                <label className="block text-xs font-medium text-slate-400 mb-2">Theme</label>
+                <label className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-2">Theme</label>
                 <select
-                  className="w-full bg-slate-800 text-white border border-slate-700 rounded-lg px-4 py-2.5 text-base focus:outline-none focus:ring-2 focus:ring-cyan-500 cursor-pointer"
+                  className="w-full bg-white text-slate-900 border border-slate-200 dark:bg-slate-800 dark:text-white dark:border-slate-700 rounded-lg px-4 py-2.5 text-base focus:outline-none focus:ring-2 focus:ring-cyan-500 cursor-pointer"
                   value={mode}
                   onChange={(e) => setMode(e.target.value as any)}
                 >

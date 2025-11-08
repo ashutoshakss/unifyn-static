@@ -80,9 +80,4 @@ coverage/
 secrets.json
 credentials.json
 
-
-
-
-
-
-
+.next/

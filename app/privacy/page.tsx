@@ -28,12 +28,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PrivacyPage() {
+export default function PrivacyPage({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
+  const sourceParamRaw = Array.isArray(searchParams?.source) ? searchParams.source[0] : searchParams?.source;
+  const hideChrome = typeof sourceParamRaw === 'string' && sourceParamRaw.toLowerCase() === 'mobile';
   return (
     <>
-      <a href="#content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-cyan-500 text-white px-4 py-2 rounded-lg z-50">Skip to main content</a>
-      <Header />
-      <main id="content" className="relative pt-32 pb-20" role="main">
+      {!hideChrome && <Header />}
+      <main id="content" className="relative pt-28 pb-12" role="main">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <article className="rounded-2xl border border-slate-800 bg-slate-900/50 backdrop-blur-sm p-8 lg:p-12 prose prose-invert prose-slate max-w-none" role="article" aria-labelledby="privacy-heading">
             <h1 id="privacy-heading" className="text-4xl font-bold text-white mb-2">Privacy Policy</h1>
@@ -54,7 +55,7 @@ export default function PrivacyPage() {
           </article>
         </div>
       </main>
-      <Footer />
+      {!hideChrome && <Footer />}
     </>
   );
 }

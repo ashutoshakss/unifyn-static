@@ -1,4 +1,6 @@
 import './globals.css';
+import './themes/light.css';
+import './themes/dark.css';
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import { ModalProvider } from '../components/ModalProvider';
@@ -37,9 +39,9 @@ export const metadata: Metadata = {
     'consolidated trading platform',
     'India fintech superapp'
   ],
-  authors: [{ name: 'Unifyn Technologies' }],
-  creator: 'Unifyn Technologies',
-  publisher: 'Unifyn Technologies',
+  authors: [{ name: 'Infigon Electric Pvt Ltd' }],
+  creator: 'Infigon Electric Pvt Ltd',
+  publisher: 'Infigon Electric Pvt Ltd',
   robots: {
     index: true,
     follow: true,
@@ -113,7 +115,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       {
         '@type': 'Organization',
         '@id': 'https://unifyn.trade/#organization',
-        name: 'Unifyn Technologies',
+        name: 'Infigon Electric Pvt Ltd',
         url: 'https://unifyn.trade',
         logo: {
           '@type': 'ImageObject',
@@ -211,7 +213,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <html lang="en-IN" className={`scroll-smooth dark ${inter.variable}`}>
+    <html lang="en-IN" className={`scroll-smooth ${inter.variable} dark`} suppressHydrationWarning>
       <head>
         <meta name="description" content="Unifyn is India's first unified finance superapp — a broker agnostic trading app designed to connect your existing broker accounts. Experience unified finance with one seamless trading interface, analytics, and ledger." />
         <script
@@ -219,7 +221,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className={`${inter.className} bg-slate-950 text-slate-100 antialiased relative`}>
+      <body className={`${inter.className} bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 antialiased relative`}>
         <ThemeProvider>
           <ModalProvider>{children}</ModalProvider>
         </ThemeProvider>
