@@ -1,4 +1,4 @@
-// File: /Users/ashutosh/work/unifyn-trade/app/privacy/page.tsx
+// File: /Users/ashutosh/poc/unifyn-static/app/privacy/page.tsx
 import * as entry from '../../../../app/privacy/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

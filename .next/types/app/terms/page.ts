@@ -1,4 +1,4 @@
-// File: /Users/ashutosh/work/unifyn-trade/app/terms/page.tsx
+// File: /Users/ashutosh/poc/unifyn-static/app/terms/page.tsx
 import * as entry from '../../../../app/terms/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

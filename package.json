@@ -1,7 +1,7 @@
 {
   "name": "unifyn-trade",
   "version": "1.0.0",
-  "description": "India's first unified, broker-agnostic trading hub",
+  "description": "India's first unified, broker-agnostic trading hub for India",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000",
@@ -20,7 +20,7 @@
     "broker agnostic platform",
     "multi broker trading",
     "trading platform India",
-    "Angel One Zerodha integration",
+    "multi-broker integration (planned)",
     "unified trading interface",
     "fintech superapp",
     "broker independent trading",

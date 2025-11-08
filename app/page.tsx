@@ -1,5 +1,6 @@
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { SHOW_BROKER_UI } from './config';
 
 export default function HomePage() {
   // FAQ Structured Data for AEO
@@ -12,7 +13,7 @@ export default function HomePage() {
         name: 'What is a unified finance superapp?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'A unified finance superapp like Unifyn brings together multiple financial services and brokers into one seamless platform. It allows you to connect different stock brokers (Angel One, Zerodha, Upstox, etc.) and manage all your trading, analytics, and portfolio from a single, unified interface.',
+          text: 'A unified finance superapp like Unifyn brings together multiple financial services into one seamless platform. It is designed to connect your existing broker accounts and manage trading, analytics, and portfolio from a single, unified interface.',
         },
       },
       {
@@ -28,7 +29,7 @@ export default function HomePage() {
         name: 'How does Unifyn enable unified finance?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Unifyn enables unified finance by securely connecting to your existing broker accounts via OAuth authentication. You can then trade, view analytics, manage your portfolio, and access consolidated reports all from one unified interface, eliminating the need to switch between different broker apps.',
+          text: 'Unifyn is designed to securely connect to your existing broker accounts via OAuth-style authentication. You can trade, view analytics, manage your portfolio, and access consolidated reports from one unified interface.',
         },
       },
       {
@@ -36,7 +37,7 @@ export default function HomePage() {
         name: 'Which brokers does this broker agnostic platform support?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Unifyn supports major Indian brokers including Angel One, Zerodha, Upstox, ICICI Direct, HDFC Securities, 5Paisa, and Kotak Securities. As a broker agnostic trading app, we continue to add more brokers to provide comprehensive unified finance coverage.',
+          text: 'Support for leading Indian brokers is planned. Specific broker integrations will be announced after they go live. No broker integrations are live yet.',
         },
       },
       {
@@ -105,16 +106,18 @@ export default function HomePage() {
               <span className="text-cyan-400">Broker Agnostic Trading</span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-slate-300 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed px-2">
-              Experience <strong>unified finance</strong> with India's premier <strong>broker agnostic trading app</strong>. Connect Angel One, Zerodha, Upstox and more brokers in one seamless interface for trading, analytics and ledger management.
+              Experience <strong>unified finance</strong> with India's premier <strong>broker agnostic trading app</strong>. Connect your existing broker accounts in one seamless interface for trading, analytics and ledger management.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4" role="group" aria-label="Call to action buttons">
-              <button 
-                data-open-modal="connect-broker" 
-                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-6 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-base font-semibold bg-cyan-700 text-white hover:bg-cyan-800 shadow-lg shadow-cyan-700/25 transition-all hover:shadow-cyan-700/40 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-950"
-                aria-label="Connect your broker to unified finance platform"
-              >
-                Connect your broker
-              </button>
+              {SHOW_BROKER_UI && (
+                <button 
+                  data-open-modal="connect-broker" 
+                  className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-6 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-base font-semibold bg-cyan-700 text-white hover:bg-cyan-800 shadow-lg shadow-cyan-700/25 transition-all hover:shadow-cyan-700/40 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-950"
+                  aria-label="Connect your broker to unified finance platform"
+                >
+                  Connect your broker
+                </button>
+              )}
               <button 
                 data-open-modal="signup" 
                 className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-6 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-base font-semibold border border-white/20 bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-950"
@@ -124,18 +127,12 @@ export default function HomePage() {
               </button>
             </div>
             <p className="mt-6 sm:mt-8 text-xs text-slate-400 max-w-2xl mx-auto px-4 leading-relaxed" role="note">
-              <strong>Disclaimer:</strong> Unifyn is not a stock broker. Market investments are subject to risks. Logos shown are trademarks of their respective owners; Unifyn is not affiliated unless stated.
+              <strong>Disclaimer:</strong> Unifyn is not a stock broker. Market investments are subject to risks. No broker integrations are live yet.
             </p>
             <div className="mt-12 sm:mt-16">
               <p className="text-xs sm:text-sm text-slate-400 mb-3 sm:mb-4 px-4">Built for India. Broker-agnostic unified finance.</p>
-              <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap px-4" role="list" aria-label="Supported brokers for unified finance platform">
-                <div className="rounded-lg border border-slate-700/50 bg-slate-800/30 backdrop-blur-sm px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs font-medium text-slate-400" role="listitem" aria-label="Angel One">AO</div>
-                <div className="rounded-lg border border-slate-700/50 bg-slate-800/30 backdrop-blur-sm px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs font-medium text-slate-400" role="listitem" aria-label="Zerodha">Z</div>
-                <div className="rounded-lg border border-slate-700/50 bg-slate-800/30 backdrop-blur-sm px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs font-medium text-slate-400" role="listitem" aria-label="Upstox">U</div>
-                <div className="rounded-lg border border-slate-700/50 bg-slate-800/30 backdrop-blur-sm px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs font-medium text-slate-400" role="listitem" aria-label="ICICI Direct">IC</div>
-                <div className="rounded-lg border border-slate-700/50 bg-slate-800/30 backdrop-blur-sm px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs font-medium text-slate-400" role="listitem" aria-label="HDFC Securities">HDFC</div>
-                <div className="rounded-lg border border-slate-700/50 bg-slate-800/30 backdrop-blur-sm px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs font-medium text-slate-400" role="listitem" aria-label="5Paisa">5P</div>
-                <div className="rounded-lg border border-slate-700/50 bg-slate-800/30 backdrop-blur-sm px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs font-medium text-slate-400" role="listitem" aria-label="Kotak Securities">K</div>
+              <div className="flex items-center justify-center px-4">
+                <img src="/assets/img/brokers.svg" alt="Broker placeholders" className="opacity-70" />
               </div>
             </div>
           </div>
@@ -148,7 +145,7 @@ export default function HomePage() {
                 Unified Finance Platform Features
               </h2>
               <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed px-2">
-                Experience <strong>broker agnostic trading</strong> with our <strong>unified finance superapp</strong>. Connect Zerodha, Angel One, and more in one app. Get unified trading analytics for India with fast, keyboard‑first execution.
+                Experience <strong>broker agnostic trading</strong> with our <strong>unified finance superapp</strong>. Designed to connect your existing broker accounts in one app. Get unified trading analytics for India with fast, keyboard‑first execution.
               </p>
             </header>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">

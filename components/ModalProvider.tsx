@@ -1,5 +1,6 @@
 "use client";
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { SHOW_BROKER_UI } from '../app/config';
 
 type ModalName = 'login' | 'signup' | 'connect-broker' | null;
 
@@ -167,20 +168,24 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
                   <svg className="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
                 </div>
                 <h2 className="text-2xl font-bold text-white mb-2">Connect your broker</h2>
-                <p className="text-sm text-slate-400">Choose your broker to continue with secure OAuth authentication. We never see your password.</p>
+                <p className="text-sm text-slate-400">Secure, OAuth-style connection to your existing broker account. We never see your password.</p>
               </div>
-              <div className="space-y-3">
-                {['Angel One','Zerodha','Upstox','ICICI Direct','HDFC Securities','5Paisa','Kotak Securities'].map((label, i) => (
-                  <a key={label} href="#" className="group flex items-center justify-between rounded-xl border border-slate-700/50 bg-slate-800/50 hover:bg-slate-700/50 hover:border-cyan-500/50 px-5 py-4 transition-all duration-200">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-slate-700/50 flex items-center justify-center">
-                        <span className="text-xs font-semibold text-slate-300">{['AO','Z','U','IC','HD','5P','K'][i]}</span>
-                      </div>
-                      <span className="font-medium text-slate-200 group-hover:text-white transition-colors">{label}</span>
+              <div className="space-y-4">
+                {SHOW_BROKER_UI ? (
+                  <div className="rounded-xl border border-slate-700/50 bg-slate-800/50 px-5 py-4">
+                    <p className="text-sm text-slate-300">Broker connections are rolling out. Choose your broker in-app when available.</p>
+                    <div className="mt-4 flex justify-end">
+                      <button data-close-modal className="rounded-lg px-4 py-2 text-sm font-semibold bg-cyan-700 text-white hover:bg-cyan-800 transition-colors">OK</button>
                     </div>
-                    <svg className="w-5 h-5 text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/></svg>
-                  </a>
-                ))}
+                  </div>
+                ) : (
+                  <div className="rounded-xl border border-slate-700/50 bg-slate-800/50 px-5 py-4">
+                    <p className="text-sm text-slate-300">Broker integrations are coming soon. Join the early access list to get notified.</p>
+                    <div className="mt-4 flex justify-end">
+                      <button data-open-modal="signup" className="rounded-lg px-4 py-2 text-sm font-semibold bg-cyan-700 text-white hover:bg-cyan-800 transition-colors">Get early access</button>
+                    </div>
+                  </div>
+                )}
               </div>
               <div className="mt-6 pt-6 border-t border-slate-700/50">
                 <div className="flex items-start gap-3">

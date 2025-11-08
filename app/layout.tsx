@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     default: "Unifyn — India's First Unified Finance Superapp | Broker Agnostic Trading Platform",
     template: '%s | Unifyn - Unified Finance Superapp'
   },
-  description: 'Unifyn is India\'s first unified finance superapp - a broker agnostic trading app connecting Angel One, Zerodha, Upstox & more. Experience unified finance with one seamless trading interface, analytics, and ledger. Trade smarter across multiple brokers.',
+  description: 'Unifyn is India\'s first unified finance superapp — a broker agnostic trading app designed to connect your existing broker accounts. Experience unified finance with one seamless trading interface, analytics, and ledger.',
   keywords: [
     'unified finance superapp',
     'broker agnostic trading app',
@@ -29,8 +29,7 @@ export const metadata: Metadata = {
     'broker agnostic platform',
     'multi broker trading app',
     'unified trading platform India',
-    'connect multiple brokers',
-    'Angel One Zerodha integration',
+    'connect your existing brokers',
     'trading analytics platform',
     'unified trading interface',
     'broker independent trading',
@@ -61,7 +60,7 @@ export const metadata: Metadata = {
     url: 'https://unifyn.trade',
     siteName: 'Unifyn - Unified Finance Superapp',
     title: "India's First Unified Finance Superapp | Broker Agnostic Trading Platform",
-    description: 'Experience unified finance with Unifyn - India\'s premier broker agnostic trading app. Connect Angel One, Zerodha, Upstox & more in one seamless interface.',
+    description: 'Experience unified finance with Unifyn — India\'s premier broker agnostic trading app. Connect your existing broker accounts in one seamless interface.',
     images: [
       {
         url: '/assets/img/logo-dark.svg',
@@ -76,7 +75,7 @@ export const metadata: Metadata = {
     site: '@unifyn',
     creator: '@unifyn',
     title: "India's First Unified Finance Superapp | Broker Agnostic Trading",
-    description: 'Unified finance made simple. Connect multiple brokers, trade smarter with our broker agnostic trading app.',
+    description: 'Unified finance made simple. Connect your existing brokers and trade smarter with our broker agnostic trading app.',
     images: ['/assets/img/logo-dark.svg'],
   },
   icons: [
@@ -170,7 +169,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           price: '0',
           priceCurrency: 'INR',
         },
-        description: 'Unified finance superapp - broker agnostic trading platform for India. Connect Angel One, Zerodha, Upstox and more in one interface.',
+        description: 'Unified finance superapp — broker agnostic trading platform for India. Connect your existing broker accounts in one interface.',
         featureList: [
           'Unified Login across Multiple Brokers',
           'Smart Trading with Keyboard Shortcuts',
@@ -214,7 +213,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-IN" className={`scroll-smooth dark ${inter.variable}`}>
       <head>
-        <meta name="description" content="Unifyn is India's first unified finance superapp - a broker agnostic trading app connecting Angel One, Zerodha, Upstox & more. Experience unified finance with one seamless trading interface, analytics, and ledger. Trade smarter across multiple brokers." />
+        <meta name="description" content="Unifyn is India's first unified finance superapp — a broker agnostic trading app designed to connect your existing broker accounts. Experience unified finance with one seamless trading interface, analytics, and ledger." />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
