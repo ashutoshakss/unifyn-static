@@ -1,11 +1,7 @@
-name: Deploy to Cloudflare Pages
+name: Deploy to S3 + CloudFront
 
 on:
   push:
-    branches:
-      - main
-      - live
-  pull_request:
     branches:
       - main
       - live
@@ -15,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      deployments: write
+      id-token: write
     
     steps:
       - name: Checkout code
@@ -35,15 +31,48 @@ jobs:
         env:
           NODE_ENV: production
       
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: unifyn-trade
-          directory: out
-          # Optional: Git info for deployment
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          # Deploy production for main/live branches, preview for PRs
-          branch: ${{ github.head_ref || github.ref_name }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      
+      - name: Deploy static files to S3
+        run: |
+          # Sync all files except HTML with long cache
+          aws s3 sync out s3://${{ secrets.AWS_S3_BUCKET }} \
+            --delete \
+            --cache-control "max-age=31536000,public,immutable" \
+            --exclude "*.html" \
+            --exclude "*.xml" \
+            --exclude "*.txt"
+          
+          # Sync HTML files with short cache
+          aws s3 sync out s3://${{ secrets.AWS_S3_BUCKET }} \
+            --cache-control "max-age=3600,public,must-revalidate" \
+            --exclude "*" \
+            --include "*.html"
+          
+          # Sync metadata files
+          aws s3 sync out s3://${{ secrets.AWS_S3_BUCKET }} \
+            --cache-control "max-age=86400,public" \
+            --exclude "*" \
+            --include "*.xml" \
+            --include "*.txt" \
+            --include "robots.txt" \
+            --include "sitemap.xml"
+      
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"
+      
+      - name: Deployment Summary
+        run: |
+          echo "✅ Deployment successful!"
+          echo "📦 S3 Bucket: ${{ secrets.AWS_S3_BUCKET }}"
+          echo "🌐 CloudFront Distribution: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}"
+          echo "🔄 Cache invalidation initiated"
 
