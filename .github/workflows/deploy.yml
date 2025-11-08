@@ -69,11 +69,13 @@ jobs:
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
             --paths "/*"
+        continue-on-error: true
       
       - name: Deployment Summary
         run: |
           echo "✅ Deployment successful!"
           echo "📦 S3 Bucket: ${{ secrets.AWS_S3_BUCKET }}"
           echo "🌐 CloudFront Distribution: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}"
-          echo "🔄 Cache invalidation initiated"
+          echo "⚠️ Note: You may need to manually invalidate CloudFront cache"
+          echo "   Run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths '/*'"
 
